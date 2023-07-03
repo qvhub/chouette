@@ -52,7 +52,7 @@ api/v1/parcel/<int:pk>/delete/
 api/v1/user-parcels/
 
 # Example of data to send for the creation of a plot
-
+```bash
 {
 
   "name": "parcelle 1",
@@ -79,3 +79,4 @@ api/v1/user-parcels/
       }
   ]
 }
+```
