@@ -14,7 +14,7 @@ class PolygonField(serializers.Field):
         return Polygon(coordinates)
 
 
-class ParcelSerializer(serializers.ModelSerializer):
+class PlotSerializer(serializers.ModelSerializer):
     zone = PolygonField()
     area_hectares = serializers.SerializerMethodField()
 

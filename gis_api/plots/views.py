@@ -1,7 +1,7 @@
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 from .models import Plot
-from .serializers import ParcelSerializer
+from .serializers import PlotSerializer
 from rest_framework import permissions
 
 class IsOwner(permissions.BasePermission):
@@ -9,29 +9,29 @@ class IsOwner(permissions.BasePermission):
         return obj.user == request.user
 
 
-class ParcelCreateView(generics.CreateAPIView):
+class PlotCreateView(generics.CreateAPIView):
     queryset = Plot.objects.all()
-    serializer_class = ParcelSerializer
+    serializer_class = PlotSerializer
     permission_classes = [IsAuthenticated]
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
 
-class ParcelRetrieveUpdateView(generics.RetrieveUpdateAPIView):
+class PlotRetrieveUpdateView(generics.RetrieveUpdateAPIView):
     queryset = Plot.objects.all()
-    serializer_class = ParcelSerializer
+    serializer_class = PlotSerializer
     permission_classes = [IsOwner]
 
     def update(self, request, *args, **kwargs):
-        return super(ParcelRetrieveUpdateView, self).update(request, *args, **kwargs)
+        return super(PlotRetrieveUpdateView, self).update(request, *args, **kwargs)
 
-class ParcelDeleteView(generics.DestroyAPIView):
+class PlotDeleteView(generics.DestroyAPIView):
     queryset = Plot.objects.all()
-    serializer_class = ParcelSerializer
+    serializer_class = PlotSerializer
     permission_classes = [IsOwner]
 
-class UserParcelsListView(generics.ListAPIView):
-    serializer_class = ParcelSerializer
+class UserPlotsListView(generics.ListAPIView):
+    serializer_class = PlotSerializer
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
