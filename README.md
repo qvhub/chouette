@@ -51,7 +51,7 @@ api/v1/accounts/logout/
 api/v1/plots/create/
 api/v1/plots/<int:pk>/
 api/v1/plots/<int:pk>/delete/
-api/v1/user-plots/
+api/v1/plots/user
 ```
 
 # Example of data to send for the creation of a plot
