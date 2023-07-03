@@ -40,16 +40,19 @@ docker-compose restart api
 ## Routes
 
 # Accounts
-
+```bash
 api/v1/accounts/register/
 api/v1/accounts/login/
 api/v1/accounts/logout/
+```
 
 # Plots
+```bash
 api/v1/create/
 api/v1/parcel/<int:pk>/
 api/v1/parcel/<int:pk>/delete/
 api/v1/user-parcels/
+```
 
 # Example of data to send for the creation of a plot
 ```bash
