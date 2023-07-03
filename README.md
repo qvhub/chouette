@@ -36,3 +36,46 @@ Now that you have everything ready, you can start editing the files of this proj
 ```bash
 docker-compose restart api
 ```
+
+## Routes
+
+# Accounts
+
+api/v1/accounts/register/
+api/v1/accounts/login/
+api/v1/accounts/logout/
+
+# Plots
+api/v1/create/
+api/v1/parcel/<int:pk>/
+api/v1/parcel/<int:pk>/delete/
+api/v1/user-parcels/
+
+# Example of data to send for the creation of a plot
+
+{
+
+  "name": "parcelle 1",
+  "zone": [
+      {
+        "lat": 48.68347772580688,
+        "lng": 4.139563432670286
+      },
+      {
+        "lat": 48.68385980862524,
+        "lng": 4.1425397283311725
+      },
+      {
+        "lat": 48.67647236043237,
+        "lng": 4.14237437857247
+      },
+      {
+        "lat": 48.67663613334162,
+        "lng": 4.1394807577909205
+      },
+      {
+        "lat": 48.68347772580688,
+        "lng": 4.139563432670286
+      }
+  ]
+}

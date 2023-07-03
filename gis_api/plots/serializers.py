@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.gis.geos import Polygon
-from .models import Parcel
+from .models import Plot
 
 class PolygonField(serializers.Field):
     def to_representation(self, obj):
@@ -19,7 +19,7 @@ class ParcelSerializer(serializers.ModelSerializer):
     area_hectares = serializers.SerializerMethodField()
 
     class Meta:
-        model = Parcel
+        model = Plot
         fields = ['id', 'name', 'zone', 'area_hectares']
         read_only_fields =['area_hectares']
 
