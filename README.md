@@ -48,10 +48,10 @@ api/v1/accounts/logout/
 
 # Plots
 ```bash
-api/v1/create/
-api/v1/parcel/<int:pk>/
-api/v1/parcel/<int:pk>/delete/
-api/v1/user-parcels/
+api/v1/plots/create/
+api/v1/plots/<int:pk>/
+api/v1/plots/<int:pk>/delete/
+api/v1/user-plots/
 ```
 
 # Example of data to send for the creation of a plot
