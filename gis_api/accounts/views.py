@@ -28,7 +28,6 @@ class AuthViewSet(viewsets.GenericViewSet):
     
     @action(methods=['POST', ], detail=False)
     def register(self, request):
-        print('----', request.data)
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = create_user_account(**serializer.validated_data)

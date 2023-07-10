@@ -12,4 +12,5 @@ class Plot(models.Model):
 
     def area_in_hectares(self):
 
-        return self.zone.transform(5070, clone=True).area /10000
+        return round((self.zone.transform(5070, clone=True).area /10000), 2)
+ 

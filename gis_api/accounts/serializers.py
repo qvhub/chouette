@@ -10,16 +10,18 @@ class UserLoginSerializer(serializers.Serializer):
     password = serializers.CharField(required=True, write_only=True)
 
 
+
 class AuthUserSerializer(serializers.ModelSerializer):
     auth_token = serializers.SerializerMethodField()
 
     class Meta:
-         model = User
-         fields = '__all__'
-         read_only_fields = ('id', 'is_active', 'is_staff')
+        model = User
+        fields=["id","username","email","is_active","is_staff","is_superuser","auth_token"]
+        read_only_fields = ('id', 'is_active', 'is_staff')
+    
     
     def get_auth_token(self, obj):
-        token = Token.objects.create(user=obj)
+        token, created = Token.objects.get_or_create(user=obj)
         return token.key
 
 class EmptySerializer(serializers.Serializer):
@@ -33,8 +35,6 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         fields = ('id', 'email', 'password', 'username')
 
     def validate_email(self, value):
-        print('ttttttt', value)
-
         user = User.objects.filter(email=value)
         if user:
             raise serializers.ValidationError("Email is already taken")
