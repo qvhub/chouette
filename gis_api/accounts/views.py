@@ -10,6 +10,7 @@ from .utils import get_and_authenticate_user, create_user_account
 
 User = get_user_model()
 
+
 class AuthViewSet(viewsets.GenericViewSet):
     permission_classes = [AllowAny]
     serializer_class = EmptySerializer
@@ -18,13 +19,13 @@ class AuthViewSet(viewsets.GenericViewSet):
         'register': UserRegisterSerializer
     }
 
-    @action(methods=['POST', ], detail=False)
-    def login(self, request):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        user = get_and_authenticate_user(**serializer.validated_data)
-        data = AuthUserSerializer(user).data
-        return Response(data=data, status=status.HTTP_200_OK)
+    # @action(methods=['POST', ], detail=False)
+    # def login(self, request):
+    #     serializer = self.get_serializer(data=request.data)
+    #     serializer.is_valid(raise_exception=True)
+    #     user = get_and_authenticate_user(**serializer.validated_data)
+    #     data = AuthUserSerializer(user).data
+    #     return Response(data=data, status=status.HTTP_200_OK)
     
     @action(methods=['POST', ], detail=False)
     def register(self, request):
@@ -35,11 +36,11 @@ class AuthViewSet(viewsets.GenericViewSet):
         return Response(data=data, status=status.HTTP_201_CREATED)
 
 
-    @action(methods=['POST', ], detail=False)
-    def logout(self, request):
-        logout(request)
-        data = {'success': 'Sucessfully logged out'}
-        return Response(data=data, status=status.HTTP_200_OK)
+    # @action(methods=['POST', ], detail=False)
+    # def logout(self, request):
+    #     logout(request)
+    #     data = {'success': 'Sucessfully logged out'}
+    #     return Response(data=data, status=status.HTTP_200_OK)
 
 
     def get_serializer_class(self):
