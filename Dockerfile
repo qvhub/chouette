@@ -22,6 +22,7 @@ RUN pip install --upgrade pip && \
 	pip install --no-cache-dir -r requirements.txt
 
 COPY ./gis_api gis_api
+COPY ./scripts /scripts
 
 RUN chown -R docker_user /home/docker_user
 

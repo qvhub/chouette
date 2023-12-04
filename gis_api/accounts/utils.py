@@ -8,7 +8,7 @@ def get_and_authenticate_user(email, password):
         raise serializers.ValidationError("Invalid username/password. Please try again!")
     return user
 
-def create_user_account(email, password, username="", **extra_fields):
+def create_user_account(email, username="", **extra_fields):
     user = get_user_model().objects.create_user(
-        email=email, password=password, username=username, **extra_fields)
+        email=email, username=username, **extra_fields)
     return user

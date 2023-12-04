@@ -1,6 +1,7 @@
 from django.contrib.gis.db import models
 from django.contrib.auth import get_user_model
 
+
 class Plot(models.Model):
     name = models.CharField(max_length=255)
     zone = models.PolygonField()
