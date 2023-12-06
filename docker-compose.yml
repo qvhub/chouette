@@ -24,13 +24,6 @@ services:
       dockerfile: ./Dockerfile
     ports:
       - 8001:8000
-    command: 
-      - /bin/bash
-      - -c
-      - |
-        python manage.py migrate
-        python manage.py shell < /scripts/fill_database.py
-        python manage.py runserver 0.0.0.0:8000
     volumes:
       - ./gis_api:/home/docker_user/gis_api
       - ./scripts:/scripts
