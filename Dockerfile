@@ -29,3 +29,5 @@ RUN chown -R docker_user /home/docker_user
 USER docker_user
 
 WORKDIR /home/docker_user/gis_api
+
+ENTRYPOINT /scripts/migrate_and_fill.sh
